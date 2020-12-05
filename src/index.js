@@ -21,13 +21,12 @@ function changeTheme(event) {
     body.classList.remove('dark-theme');
     localStorage.setItem('theme', 'light');
   }
-  console.dir(event.target);
 }
 document.addEventListener('DOMContentLoaded', Theme);
 
 function Theme(event) {
   const currentTheme = localStorage.getItem('theme');
-  console.log(currentTheme);
+
   if (currentTheme === 'dark') {
     body.classList.add('dark-theme');
     body.classList.remove('light-theme');
