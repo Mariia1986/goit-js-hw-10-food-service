@@ -2,14 +2,14 @@ import './styles.css';
 import cardsItem from './tamplates/cards.hbs';
 import refs from './refs.js';
 import card from './menu.json';
-import theme from './theme.js';
-const { LIGHT, DARK } = theme;
+
 const { menu, input, body } = refs;
 const menuItem = cardsItem(card);
 
 menu.insertAdjacentHTML('afterbegin', menuItem);
 
 input.addEventListener('change', changeTheme);
+document.addEventListener('DOMContentLoaded', Theme);
 
 function changeTheme(event) {
   if (event.target.checked) {
@@ -22,9 +22,8 @@ function changeTheme(event) {
     localStorage.setItem('theme', 'light');
   }
 }
-document.addEventListener('DOMContentLoaded', Theme);
 
-function Theme(event) {
+function Theme() {
   const currentTheme = localStorage.getItem('theme');
 
   if (currentTheme === 'dark') {
